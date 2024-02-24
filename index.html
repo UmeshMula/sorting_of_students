@@ -4,30 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Student Data</title>
   </head>
   <body>
     <div class="heading">Student Portal</div>
-    <div id="maleStudentContainer"></div>
-    <div id="femaleStudentContainer"></div>
-    <div id="genederContainer"></div>
 
     <!-- Your existing search input and buttons -->
-    
+
     <div class="container">
-      
       <div class="search-container">
         <input type="text" id="searchInput" placeholder="Search..." />
         <button onclick="search()" id="btn">Search</button>
-    </div>
+      </div>
       <div class="sort-btn">
-        <button onclick="sort('A-Z')" id="sorting">Sort A->Z</button>
-        <button onclick="sort('Z-A')" id="sorting1">Sort Z->A</button>
+        <button onclick="sort('A-Z')" id="sorting">Sort A <i class="fa-solid fa-arrow-right"></i> Z</button>
+        <button onclick="sort('Z-A')" id="sorting1">Sort Z <i class="fa-solid fa-arrow-right"></i> A</button>
         <button onclick="sort('marks')" id="sorting2">Sort By Marks</button>
         <button onclick="sort('passing')" id="sorting3">Sory By Passing</button>
         <button onclick="sort('class')" id="sorting4">Sort By Class</button>
         <button onclick="sortGender()" id="sorting5">Show By Gender</button>
       </div>
+
+      <div id="maleStudentContainer"></div>
+      <div id="femaleStudentContainer"></div>
       <table id="studentTable">
         <!-- Table content will be dynamically generated using JavaScript -->
       </table>

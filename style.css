@@ -20,14 +20,11 @@ body {
     top: 0; 
     z-index: 1000;
 }
-#maleStudentContainer{
+#maleStudentContainer, #femaleStudentContainer{
     max-width: 800px;
     margin: 50px auto;
 }
-#femaleStudentContainer{
-    max-width: 800px;
-    margin: 50px auto;
-}
+
 .sort-btn {
     display: flex;
     justify-content: space-between;

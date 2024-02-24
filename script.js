@@ -1238,7 +1238,6 @@ const studentsData = [
 ];
 
 let filteredData = studentsData;
-let originalTablePosition;
 
 function getOriginalTablePosition() {
   const originalTable = document.getElementById("studentTable");
@@ -1297,46 +1296,41 @@ function renderTable(data, containerId) {
     idCell.textContent = student.id;
     row.appendChild(idCell);
 
-    // const nameCell = document.createElement('td');
-    // const circularImage = createCircularImage(student.img_src);
-    // nameCell.appendChild(circularImage);
-    // nameCell.innerHTML += ` ${student.first_name} ${student.last_name}`;
-    // row.appendChild(nameCell);
-
-
     const nameCell = document.createElement('td');
-    
     const imageContainer = document.createElement('div');
     imageContainer.style.display = 'flex'; 
     imageContainer.style.alignItems='center'
 
     const circularImage = createCircularImage(student.img_src);
     imageContainer.appendChild(circularImage);
-
+    
     const nameText = document.createElement('span');
     nameCell.appendChild(imageContainer);
     nameText.textContent = ` ${student.first_name} ${student.last_name}`;
     imageContainer.appendChild(nameText);
     nameText.style.marginLeft='5px'
-
-    
     row.appendChild(nameCell);
+
 
     const genderCell = document.createElement('td');
     genderCell.textContent = student.gender;
     row.appendChild(genderCell);
 
+
     const classCell = document.createElement('td');
     classCell.textContent = student.class;
     row.appendChild(classCell);
+
 
     const marksCell = document.createElement('td');
     marksCell.textContent = student.marks;
     row.appendChild(marksCell);
 
+
     const passingCell = document.createElement('td');
     passingCell.textContent = student.passing ? 'Passing' : 'Failed';
     row.appendChild(passingCell);
+
 
     const emailCell = document.createElement('td');
     emailCell.textContent = student.email;
@@ -1367,6 +1361,7 @@ function search() {
 }
 
 function sort(type) {
+    let dataToSort = filteredData;
   switch (type) {
     case "A-Z":
       filteredData.sort((a, b) => a.first_name.localeCompare(b.first_name));
@@ -1387,8 +1382,9 @@ function sort(type) {
       break;
   }
 
-  renderTable(filteredData, "studentTable");
+  renderTable(dataToSort, "studentTable");
 }
+
 
 
 function sortGender() {
@@ -1398,56 +1394,30 @@ function sortGender() {
   const femaleStudents = studentsData.filter(
     (student) => student.gender && student.gender.toLowerCase() === "female"
   );
+
+  displayData = [...maleStudents, ...femaleStudents];
+  renderTable(displayData, "studentTable");
   renderTable(maleStudents, "maleStudentContainer");
   renderTable(femaleStudents, "femaleStudentContainer");
+  
 
   const originalTable = document.getElementById("studentTable");
   originalTable.style.display = "none";
-
-  // Save the original position before rendering gender tables
-  getOriginalTablePosition();
-
-  const maleTable = document.getElementById("maleStudentContainer");
-  const femaleTable = document.getElementById("femaleStudentContainer");
-
-  // Centering gender tables
-  const centerLeft =
-    window.innerWidth / 2 -
-    (maleTable.offsetWidth + femaleTable.offsetWidth) / 2;
-  maleTable.style.left = `${centerLeft}px`;
-  femaleTable.style.left = `${centerLeft + maleTable.offsetWidth}px`;
-
-  // Set the position of gender tables to the original position
-  maleTable.style.top = `${originalTablePosition.top}px`;
-  femaleTable.style.top = `${originalTablePosition.top}px`;
-
-  // Hide search bar and buttons
-  const searchInput = document.getElementById("searchInput");
-  const searchButton = document.getElementById("btn");
-  const sortButtons = document.getElementById("sorting");
-  const sortButtons1 = document.getElementById("sorting1");
-  const sortButtons2 = document.getElementById("sorting2");
-  const sortButtons3 = document.getElementById("sorting3");
-  const sortButtons4 = document.getElementById("sorting4");
-  const sortButtons5 = document.getElementById("sorting5");
-
-  searchInput.style.display = "none";
-  searchButton.style.display = "none";
-  sortButtons.style.display = "none";
-  sortButtons1.style.display = "none";
-  sortButtons2.style.display = "none";
-  sortButtons3.style.display = "none";
-  sortButtons4.style.display = "none";
-  sortButtons5.style.display = "none";
 }
+
+
+
 document.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {
         window.location.href = window.location.origin;
     }
 });
 
+
 function displayAllStudents() {
-    // Initialize displayData with a copy of studentsData
-    renderTable(studentsData, "studentTable");
+    displayData = [...studentsData];
+    renderTable(displayData, "studentTable");
   }
   window.onload = displayAllStudents;
+
+  
