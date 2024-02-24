@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #b8f2e6, #f0d3f7, #ffaaa5);
+}
+
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+}
+
+.heading {
+    background: #54606C;
+    padding: 10px;
+    margin: 3px 10px;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    width: 95%; 
+    position: fixed;
+    top: 0; 
+    z-index: 1000;
+}
+#maleStudentContainer{
+    max-width: 800px;
+    margin: 50px auto;
+}
+#femaleStudentContainer{
+    max-width: 800px;
+    margin: 50px auto;
+}
+.sort-btn {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.search-container {
+    display: flex;
+    margin: 20px 0px; 
+}
+
+#searchInput {
+    flex: 6; 
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #365D7C
+    
+}
+#searchInput:focus {
+    outline: none; /* Remove the default outline */
+    border: 2px solid #365D7C; /* Set the border for the focused state */
+    box-shadow: 0 0 5px rgba(54, 93, 124, 0.5); /* Optionally, you can add a box shadow for a more subtle effect */
+}
+
+#btn {
+    flex: 0.8; 
+    padding: 8px; 
+    margin-left: 5px; 
+    background-color: #365D7C;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: large;
+}
+.sort-btn button {
+    /* flex: 1; */
+    padding: 8px 12px;
+    cursor: pointer;
+    margin: 3px;
+    background-color: rgb(58, 65, 197);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: medium;
+
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #181717;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #fd3333;
+    color: #ffffff;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    padding: 8px;
+    margin-right: 10px;
+}
+.student-image {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+}
